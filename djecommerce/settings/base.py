@@ -1,7 +1,6 @@
 import os
 from decouple import config
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 
@@ -14,16 +13,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_countries',
+
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'django_countries',
+
     'core'
 ]
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,11 +63,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
-VENV_PATH = os.path.dirname(BASE_DIR)
-STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(VENV_PATH, 'media')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 # Auth
 
@@ -79,3 +77,6 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
+# CRISPY FORMS
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
